@@ -17,6 +17,7 @@ def predict(rooms, area, pop, pop_dens, frg_pct, emp, tax_income, luxurious, tem
     prediction = model.predict(input_data)[0]
     return round(float(prediction), 2)
 
+# Create Gradio interface
 demo = gr.Interface(
     fn=predict,
     inputs=[
@@ -29,8 +30,8 @@ demo = gr.Interface(
         gr.Number(label="Tax Income"),
         gr.Checkbox(label="Luxurious"),
         gr.Checkbox(label="Temporary"),
-        gr.Checkbox(label="Nature"),
         gr.Checkbox(label="Furnished"),
+        gr.Checkbox(label="Nature"),
         gr.Number(label="Area Category Encoded"),
         gr.Checkbox(label="Zurich City")
     ],
