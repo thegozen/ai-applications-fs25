@@ -10,8 +10,8 @@ with open(model_filename, mode="rb") as f:
 df = pd.read_csv("apartments_data_enriched_with_new_features.csv")
 features = ['rooms', 'area', 'pop', 'pop_dens', 'frg_pct', 'emp', 'tax_income', 'room_per_m2', 'luxurious', 'temporary', 'furnished', 'nature', 'area_cat_ecoded', 'zurich_city']
 
-def predict(rooms, area, pop, pop_dens, frg_pct, emp, tax_income, luxurious, temporary, furnished, nature, area_cat_ecoded, zurich_city):
-    input_data = pd.DataFrame([[rooms, area, pop, pop_dens, frg_pct, emp, tax_income, 0, luxurious, temporary, furnished, nature, area_cat_ecoded, zurich_city]],
+def predict(rooms, area, pop, pop_dens, frg_pct, emp, tax_income, luxurious, temporary, nature, furnished,  area_cat_ecoded, zurich_city):
+    input_data = pd.DataFrame([[rooms, area, pop, pop_dens, frg_pct, emp, tax_income, 0, luxurious, temporary, nature, furnished, area_cat_ecoded, zurich_city]],
                               columns=features)
     input_data['room_per_m2'] = round(input_data['area'] / input_data['rooms'], 2)
     prediction = model.predict(input_data)[0]
@@ -29,8 +29,8 @@ demo = gr.Interface(
         gr.Number(label="Tax Income"),
         gr.Checkbox(label="Luxurious"),
         gr.Checkbox(label="Temporary"),
-        gr.Checkbox(label="Furnished"),
         gr.Checkbox(label="Nature"),
+        gr.Checkbox(label="Furnished"),
         gr.Number(label="Area Category Encoded"),
         gr.Checkbox(label="Zurich City")
     ],
