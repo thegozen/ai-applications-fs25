@@ -29,8 +29,8 @@ demo = gr.Interface(
         gr.Number(label="Tax Income"),
         gr.Checkbox(label="Luxurious"),
         gr.Checkbox(label="Temporary"),
-        gr.Checkbox(label="Nature"),
         gr.Checkbox(label="Furnished"),
+        gr.Checkbox(label="Nature"),
         gr.Number(label="Area Category Encoded"),
         gr.Checkbox(label="Zurich City")
     ],
