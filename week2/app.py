@@ -8,7 +8,7 @@ with open(model_filename, mode="rb") as f:
     model = pickle.load(f)
 # Load dataset
 df = pd.read_csv("apartments_data_enriched_with_new_features.csv")
-features = ['rooms', 'area', 'pop', 'pop_dens', 'frg_pct', 'emp', 'tax_income', 'room_per_m2', 'luxurious', 'temporary', 'furnished', 'elevator', 'area_cat_ecoded', 'zurich_city']
+features = ['rooms', 'area', 'pop', 'pop_dens', 'frg_pct', 'emp', 'tax_income', 'room_per_m2', 'luxurious', 'temporary', 'furnished', 'nature', 'area_cat_ecoded', 'zurich_city']
 
 def predict(rooms, area, pop, pop_dens, frg_pct, emp, tax_income, luxurious, temporary, furnished, nature, area_cat_ecoded, zurich_city):
     input_data = pd.DataFrame([[rooms, area, pop, pop_dens, frg_pct, emp, tax_income, 0, luxurious, temporary, furnished, nature, area_cat_ecoded, zurich_city]],
